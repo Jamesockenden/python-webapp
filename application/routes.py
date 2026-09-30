@@ -1,5 +1,5 @@
 from flask import render_template
-import random
+import secrets
 from application import app
 
 
@@ -16,7 +16,7 @@ def welcome(name='Team'):
 
 @app.route('/joke')
 def joke():
-    joke_number = random.randrange(len(joke_dict))
+    joke_number = secrets.randbelow(len(joke_dict))
     joke_question = joke_dict[joke_number][0]
     joke_answer = joke_dict[joke_number][1]
     return render_template('joke.html', title="Joke Time", joke_question=joke_question, joke_answer=joke_answer, number_of_jokes=len(joke_dict))

@@ -20,7 +20,7 @@ def test_home_page():
     with app.test_client() as test_client:
         response = test_client.get('/home')
         assert response.status_code == 200
-        assert b"Simple Python Web App" in response.data
+        assert b"Very simple Python Web App" in response.data
         assert b"Flask web microframework" in response.data
         assert b"Version" in response.data
 
